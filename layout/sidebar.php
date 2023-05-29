@@ -21,19 +21,18 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                        <span>Data</span>
+                <li class="sidebar-item">
+                    <a href="alternatif.php" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Data Alternatif</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="alternatif.php">Alternatif</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="bobot.php">Bobot &amp; Kriteria</a>
-                        </li>
-                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="bobot.php" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Data Kriteria</span>
+                    </a>
                 </li>
 
                 <li class="sidebar-item">
