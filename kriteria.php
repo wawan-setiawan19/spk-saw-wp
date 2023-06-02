@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php
+require "layout/head.php";
 require "include/conn.php";
-require "W.php";
-require "R.php";
 ?>
 
   <body>
     <div id="app">
+      <?php require "layout/sidebar.php";?>
       <div class="container">
         <header class="mb-3">
           <a href="#" class="burger-btn d-block d-xl-none">
@@ -15,7 +15,7 @@ require "R.php";
           </a>
         </header>
         <div class="page-heading">
-          <h3>Nilai Preferensi (P)</h3>
+          <h3>Bobot Kriteria</h3>
         </div>
         <div class="page-content">
           <section class="row">
@@ -23,38 +23,38 @@ require "R.php";
               <div class="card">
 
                 <div class="card-header">
-                  <h4 class="card-title">Tabel Nilai Preferensi (P)</h4>
+                  <h4 class="card-title">Tabel Kriteria</h4>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                    <p class="card-text">
-                    Nilai preferensi (P) merupakan penjumlahan dari perkalian matriks ternormalisasi R dengan vektor bobot W.</p>
+                    <p class="card-text">Pengambil keputusan memberi bobot preferensi dari setiap kriteria dengan
+                      masing-masing jenisnya (keuntungan/benefit atau biaya/cost):</p>
                   </div>
                   <div class="table-responsive">
                     <table class="table table-striped mb-0">
                     <caption>
-    Nilai Preferensi (P)
+    Tabel Kriteria C<sub>i</sub>
   </caption>
   <tr>
     <th>No</th>
-    <th>Alternatif</th>
-    <th>Hasil</th>
+    <th>Simbol</th>
+    <th colspan="2">Kriteria</th>
   </tr>
   <?php
-
-$P = array();
-$m = count($W);
-$no = 0;
-foreach ($R as $i => $r) {
-    for ($j = 0; $j < $m; $j++) {
-        $P[$i] = (isset($P[$i]) ? $P[$i] : 0) + $r[$j] * $W[$j];
-    }
-    echo "<tr class='center'>
-            <td>" . (++$no) . "</td>
-            <td>{$nama[$i][0]}</td>
-            <td>{$P[$i]}</td>
-          </tr>";
+$sql = 'SELECT id_criteria,criteria,weight,attribute FROM saw_criterias';
+$result = $db->query($sql);
+$i = 0;
+while ($row = $result->fetch_object()) {
+    echo "<tr>
+        <td class='right'>" . (++$i) . "</td>
+        <td class='center'>C{$i}</td>
+        <td>{$row->criteria}</td>
+        <td>
+            <a href='bobot-edit.php?id={$row->id_criteria}' class='btn btn-info btn-sm'>Edit</a>
+            </td>
+      </tr>\n";
 }
+$result->free();
 ?>
                     </table>
                   </div>

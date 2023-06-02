@@ -5,7 +5,7 @@
     <body>
         <div id="app">
             <?php require "layout/sidebar.php";?>
-            <div id="main">
+            <div class="container">
                 <header class="mb-3">
                     <a href="#" class="burger-btn d-block d-xl-none">
                         <i class="bi bi-justify fs-3"></i>

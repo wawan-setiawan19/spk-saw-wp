@@ -23,15 +23,10 @@ require "include/conn.php";
               <div class="card">
 
                 <div class="card-header">
-                  <h4 class="card-title">Matriks Keputusan (X) &amp; Ternormalisasi (R)</h4>
+                  <h4 class="card-title">Pengisian Matrik Keputusan</h4>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                    <p class="card-text">Melakukan perhitungan normalisasi untuk mendapatkan matriks nilai ternormalisasi (R), dengan ketentuan :
-Untuk normalisai nilai, jika faktor/attribute kriteria bertipe cost maka digunakan rumusan:
-Rij = ( min{Xij} / Xij)
-sedangkan jika faktor/attribute kriteria bertipe benefit maka digunakan rumusan:
-Rij = ( Xij/max{Xij} )</p>
                   </div>
                   <button type="button" class="btn btn-outline-success btn-sm m-2" data-bs-toggle="modal"
                                         data-bs-target="#inlineForm">
@@ -39,9 +34,6 @@ Rij = ( Xij/max{Xij} )</p>
                                     </button>
                   <div class="table-responsive">
                   <table class="table table-striped mb-0">
-    <caption>
-        Matrik Keputusan(X)
-    </caption>
     <tr>
         <th rowspan='2'>Alternatif</th>
         <th colspan='6'>Kriteria</th>
@@ -82,6 +74,9 @@ while ($row = $result->fetch_object()) {
             <td>" . round($row->C3, 2) . "</td>
             <td>" . round($row->C4, 2) . "</td>
             <td>" . round($row->C5, 2) . "</td>
+            <td>
+            <a href='keputusan-hapus.php?id={$row->id_alternative}' class='btn btn-danger btn-sm'>Hapus</a>
+            </td>
           </tr>\n";
 }
 $result->free();
@@ -89,92 +84,6 @@ $result->free();
 ?>
 </table>
 
-<table class="table table-striped mb-0">
-    <caption>
-        Matrik Ternormalisasi (R)
-    </caption>
-    <tr>
-        <th rowspan='2'>Alternatif</th>
-        <th colspan='5'>Kriteria</th>
-    </tr>
-    <tr>
-        <th>C1</th>
-        <th>C2</th>
-        <th>C3</th>
-        <th>C4</th>
-        <th>C5</th>
-    </tr>
-    <?php
-$sql = "SELECT
-          a.id_alternative,
-          c.name,
-          SUM(
-            IF(
-              a.id_criteria=1,
-              IF(
-                b.attribute='benefit',
-                a.value/" . max($X[1]) . ",
-                " . min($X[1]) . "/a.value)
-              ,0)
-              ) AS C1,
-          SUM(
-            IF(
-              a.id_criteria=2,
-              IF(
-                b.attribute='benefit',
-                a.value/" . max($X[2]) . ",
-                " . min($X[2]) . "/a.value)
-               ,0)
-             ) AS C2,
-          SUM(
-            IF(
-              a.id_criteria=3,
-              IF(
-                b.attribute='benefit',
-                a.value/" . max($X[3]) . ",
-                " . min($X[3]) . "/a.value)
-               ,0)
-             ) AS C3,
-          SUM(
-            IF(
-              a.id_criteria=4,
-              IF(
-                b.attribute='benefit',
-                a.value/" . max($X[4]) . ",
-                " . min($X[4]) . "/a.value)
-               ,0)
-             ) AS C4,
-          SUM(
-            IF(
-              a.id_criteria=5,
-              IF(
-                b.attribute='benefit',
-                a.value/" . max($X[5]) . ",
-                " . min($X[5]) . "/a.value)
-               ,0)
-             ) AS C5
-        FROM
-          saw_evaluations a
-          JOIN saw_criterias b USING(id_criteria)
-          JOIN saw_alternatives c USING(id_alternative)
-        GROUP BY a.id_alternative
-        ORDER BY a.id_alternative
-       ";
-$result = $db->query($sql);
-$R = array();
-while ($row = $result->fetch_object()) {
-    $R[$row->id_alternative] = array($row->C1, $row->C2, $row->C3, $row->C4, $row->C5);
-    echo "<tr class='center'>
-          <th>{$row->name}</th>
-            <td>" . round($row->C1, 2) . "</td>
-            <td>" . round($row->C2, 2) . "</td>
-            <td>" . round($row->C3, 2) . "</td>
-            <td>" . round($row->C4, 2) . "</td>
-            <td>" . round($row->C5, 2) . "</td>
-          </tr>\n";
-}
-?>
-</table>
                   </div>
                 </div>
               </div>
@@ -248,8 +157,6 @@ $result->free();
                 </div>
             </div>
         </div>
-
-    <?php require "preferensi.php"?>
 
     <?php require "layout/js.php";?>
   </body>
