@@ -2,7 +2,7 @@
     <div class="container">
         <div class="sidebar-header">
             <div class="logo">
-                <a class="navbar-brand text-primary" href="./">SPK SAW-WP</a>
+                <a class="navbar-brand text-primary" href="./">SPK</a>
             </div>
         </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,6 +23,11 @@
       <li class="nav-item">
         <a class="nav-link" href="kriteria.php">
             <span>Data Kriteria</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sub-kriteria.php">
+            <span>Data Sub Kriteria</span>
         </a>
       </li>
       <li class="nav-item">

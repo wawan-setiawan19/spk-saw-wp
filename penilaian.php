@@ -109,15 +109,15 @@ $result->free();
                             <div class="form-group">
                             <select class="form-control form-select" name="id_alternative">
                             <?php
-$sql = 'SELECT id_alternative,name FROM saw_alternatives';
-$result = $db->query($sql);
-$i = 0;
-while ($row = $result->fetch_object()) {
-    echo '<option value="' . $row->id_alternative . '">' . $row->name . '</option>';
-}
-$result->free();
-?>
-                                          </select>
+                              $sql = 'SELECT id_alternative,name FROM saw_alternatives';
+                              $result = $db->query($sql);
+                              $i = 0;
+                              while ($row = $result->fetch_object()) {
+                                echo '<option value="' . $row->id_alternative . '">' . $row->name . '</option>';
+                              }
+                              $result->free();
+                              ?>
+                                </select>
                             </div>
                         </div>
                         <div class="modal-body">
@@ -125,22 +125,31 @@ $result->free();
                             <div class="form-group">
                             <select class="form-control form-select" name="id_criteria">
                             <?php
-$sql = 'SELECT * FROM saw_criterias';
-$result = $db->query($sql);
-$i = 0;
-while ($row = $result->fetch_object()) {
-    echo '<option value="' . $row->id_criteria . '">' . $row->criteria . '</option>';
-}
-$result->free();
-?>
-                                          </select>
+                                  $sql = 'SELECT * FROM saw_criterias';
+                                  $result = $db->query($sql);
+                                  $i = 0;
+                                  while ($row = $result->fetch_object()) {
+                                      echo '<option value="' . $row->id_criteria . '">' . $row->criteria . '</option>';
+                                  }
+                                  $result->free();
+                                  ?>
+                            </select>
                             </div>
                         </div>
                         <div class="modal-body">
                             <label>Value: </label>
                             <div class="form-group">
-                                <input type="text" name="value" placeholder="value..." class="form-control"
-                                    required>
+                            <select class="form-control form-select" name="value">
+                            <?php
+                                  $sql = 'SELECT * FROM saw_sub_criterias';
+                                  $result = $db->query($sql);
+                                  $i = 0;
+                                  while ($row = $result->fetch_object()) {
+                                      echo '<option value="' . $row->value . '">' . $row->sub_criteria . '</option>';
+                                  }
+                                  $result->free();
+                                  ?>
+                            </select>
                             </div>
                         </div>
                         <div class="modal-footer">

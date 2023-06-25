@@ -38,8 +38,8 @@
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right">
-
+                <div id="auth-right d-flex justify-content-center align-items-center" style="width: 75vw;">
+                    <img src="https://unsplash.com/photos/MYbhN8KaaEc/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjg3Njc5NzcyfA&force=true&w=1920" class="img-fluid" alt="...">
                 </div>
             </div>
         </div>
