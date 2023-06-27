@@ -14,10 +14,14 @@ require "include/conn.php";
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            <div class="page-heading">
-                <h3>Hasil Perhitungan Weight Product</h3>
-            </div>
             <div class="page-content">
+                <div class="container">
+                    <div class="card">
+                      <div class="card-header">
+                        <h4 class="card-title">Hasil Perhitungan Metode WP</h4>
+                      </div>
+                    </div>
+                </div>
                 <?php
                 require("controller/Kriteria.php");
 

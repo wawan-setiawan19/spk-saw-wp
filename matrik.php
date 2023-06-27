@@ -15,20 +15,13 @@ require "include/conn.php";
         </a>
       </header>
       <div class="page-heading">
-        <h3>Matrik</h3>
       </div>
       <div class="page-content">
         <section class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Matriks Keputusan (X) &amp; Ternormalisasi (R)</h4>
-              </div>
-              <div class="card-content">
-                <button type="button" class="btn btn-outline-success btn-sm ms-2" data-bs-toggle="modal"
-                  data-bs-target="#inlineForm">
-                  Isi Nilai Alternatif
-                </button>
+                <h4 class="card-title">Hasil Perhitungan Metode SAW</h4>
               </div>
             </div>
             <div class="card">

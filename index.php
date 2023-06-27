@@ -22,7 +22,7 @@
                                     <h4>Selamat Datang, di Sistem Pengambilan Keputusan</h4>
                                 </div>
                                 <div class="card-content">
-                                <img src="https://unsplash.com/photos/MYbhN8KaaEc/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjg3Njc5NzcyfA&force=true&w=1920" class="img-fluid" alt="...">
+                                <img src="https://rec-data.kalibrr.com/www.kalibrr.com/logos/B87BZNTFNDS5W9LGD3RQJZXLZAXAQRGMDGWCE7SN-5d789f0d.jpg" class="img-fluid" alt="...">
                                 </div>
                             </div>
                         </div>
